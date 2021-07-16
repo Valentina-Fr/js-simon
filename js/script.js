@@ -32,6 +32,19 @@ var timer = setInterval (function(){
     if(seconds === 0) {
         clearInterval(timer);
         countdown.innerText = "";
+        for (let i = 0; i < 5; i++) {
+            do {
+                var guess = prompt("Inserisci un numero da 1 a 100");
+            } while (!guess || isNaN(guess) || guess.trim() === "" || guess < 1 || guess > 100);
+            if (randomNumbers.includes(parseInt(guess))) {
+                matchingNumbers.push(parseInt(guess));
+            }
+        }
+        if(matchingNumbers.length !== 0) {
+            alert("I numeri indovinati sono " + matchingNumbers.length + " : " + matchingNumbers);
+        } else {
+            alert("Non hai indovinato nessun numero");
+        }
     } else {
         countdown.innerText = --seconds;
     }
