@@ -11,6 +11,13 @@ const randomNumbers = [];
 //Array numeri indovinati
 const matchingNumbers = [];
 
+//Timer
+let seconds = 5;
+
+//Recupero elemento html
+var countdown = document.getElementById("countdown");
+countdown.innerText = seconds;
+
 //Generare 5 numeri casuali
 while (randomNumbers.length < 5) {
     const random = Math.floor(Math.random() * 100) + 1;
@@ -19,3 +26,13 @@ while (randomNumbers.length < 5) {
     }
 }
 console.table(randomNumbers);
+
+//Parte il timer
+var timer = setInterval (function(){
+    if(seconds === 0) {
+        clearInterval(timer);
+        countdown.innerText = "";
+    } else {
+        countdown.innerText = --seconds;
+    }
+}, 1000)
