@@ -25,6 +25,7 @@ while (randomNumbers.length < 5) {
         randomNumbers.push(random);
     }
 }
+alert(randomNumbers);
 console.table(randomNumbers);
 
 //Parte il timer
