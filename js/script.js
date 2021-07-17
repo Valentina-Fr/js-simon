@@ -12,7 +12,7 @@ const randomNumbers = [];
 const matchingNumbers = [];
 
 //Timer
-let seconds = 5;
+let seconds = 30;
 
 //Recupero elemento html
 var countdown = document.getElementById("countdown");
@@ -41,10 +41,13 @@ var timer = setInterval (function(){
                 matchingNumbers.push(parseInt(guess));
             }
         }
-        if(matchingNumbers.length !== 0) {
-            alert("I numeri indovinati sono " + matchingNumbers.length + " : " + matchingNumbers);
+        //Stampa risultato
+        if (matchingNumbers.length > 1) {
+            countdown.innerText = matchingNumbers.length + " numeri corretti: " + matchingNumbers.join(", ");
+        } else if (matchingNumbers.length === 1) {
+            countdown.innerText = "1 numero corretto: " + matchingNumbers;
         } else {
-            alert("Non hai indovinato nessun numero");
+            countdown.innerText = "Nessun numero inserito è corretto";
         }
     } else {
         countdown.innerText = --seconds;
